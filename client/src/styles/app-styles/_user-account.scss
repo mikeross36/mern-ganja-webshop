@@ -1,0 +1,138 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss";
+
+.user__account {
+  &-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+
+    @include mixins.breakpoint-up(medium) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+      gap: 2rem;
+      padding-top: 0;
+    }
+
+    .user__account-form-container {
+      margin-bottom: $mb-1;
+
+      .form__user-data,
+      .form__user-password {
+        margin: 0 auto;
+        padding: 2rem;
+        max-width: 16rem;
+        height: 22rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+
+        @include mixins.breakpoint-up(large) {
+          row-gap: 1.5rem;
+        }
+
+        .form__title {
+          text-transform: capitalize;
+          text-align: center;
+        }
+
+        .form__control {
+          position: relative;
+          margin: 0 auto;
+          height: 80px;
+          width: 100%;
+        }
+
+        .form__input {
+          font-family: inherit;
+          font-size: $fontSm;
+          width: 100%;
+          height: 2rem;
+          outline: none;
+          padding: 0 0.6rem;
+          margin: 0.5rem 0;
+          border: 3px solid transparent;
+          transition: all 0.3s;
+          border-radius: $radius;
+          padding: 0.1rem 0.3rem;
+          box-shadow: $boxSh;
+
+          &::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $lightColor;
+            opacity: 1;
+            /* Firefox */
+          }
+
+          &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: $lightColor;
+          }
+
+          &::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: $lightColor;
+          }
+        }
+
+        .eye {
+          position: absolute;
+          right: 0;
+          transform: translateY(-2.3rem);
+          cursor: pointer;
+        }
+
+        .form__photo-upload {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .form__user-photo {
+            height: 4.2rem;
+            width: 4rem;
+            border-radius: 50%;
+            margin-right: 2rem;
+            border: 1px solid $textColorLight;
+            object-fit: cover;
+          }
+
+          .form__upload {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+          }
+
+          .form__upload:focus + label {
+            outline: 3px solid $textColor;
+            outline-offset: 3px;
+          }
+
+          .form__upload + label {
+            color: $textColor;
+            display: inline-block;
+            text-decoration: none;
+            border-bottom: 1px solid $textColorLight;
+            padding: 3px;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+            cursor: pointer;
+          }
+
+          .form__upload + label:hover {
+            background-color: $textColorLight;
+            color: $whiteColor;
+            -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+            -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}

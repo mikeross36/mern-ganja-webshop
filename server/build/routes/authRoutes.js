@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const validateSchema_1 = __importDefault(require("../middlewares/validateSchema"));
+const authSchema_1 = require("../schemas/authSchema");
+const authController_1 = require("../controllers/authController");
+const tokenProtect_1 = require("../middlewares/tokenProtect");
+const requireUser_1 = require("../middlewares/requireUser");
+const router = express_1.default.Router();
+router.post("/register", (0, validateSchema_1.default)(authSchema_1.registerUserSchema), authController_1.registerUserHandler);
+router.post("/verify/:userId/:verificationCode", (0, validateSchema_1.default)(authSchema_1.verifyUserSchema), authController_1.verifyUserHandler);
+router.post("/login", (0, validateSchema_1.default)(authSchema_1.loginUserSchema), authController_1.loginUserHandler);
+router.get("/refresh", authController_1.refreshAccessTokenHandler);
+router.post("/forgot-password", (0, validateSchema_1.default)(authSchema_1.forgotPasswordSchema), authController_1.forgotPasswordHandler);
+router.patch("/reset-password/:resetToken", (0, validateSchema_1.default)(authSchema_1.resetPasswordSchema), authController_1.resetPasswordHandler);
+router.use(tokenProtect_1.tokenProtect, requireUser_1.requireUser);
+router.post("/logout", authController_1.logoutUserHandler);
+router.patch("/update-password", (0, validateSchema_1.default)(authSchema_1.updatePasswordSchema), authController_1.updatePasswordHandler);
+exports.default = router;

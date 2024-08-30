@@ -1,0 +1,47 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss";
+
+.button {
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: capitalize;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: $whiteColor;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  background-image: linear-gradient(
+    45deg,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: $whiteColor;
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.button--mid {
+  padding: 0.7rem 1rem;
+}
+
+.button--small {
+  padding: 0.3rem 0.8rem;
+}

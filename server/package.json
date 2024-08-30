@@ -1,0 +1,52 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "module": "module",
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only --files src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/config": "^3.3.4",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/html-to-text": "^9.0.4",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/morgan": "^1.9.9",
+    "@types/nodemailer": "^6.4.15",
+    "@types/pug": "^2.0.10",
+    "morgan": "^1.10.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@typegoose/typegoose": "^12.6.0",
+    "argon2": "^0.40.3",
+    "config": "^3.3.12",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "html-to-text": "^9.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.0",
+    "nodemailer": "^6.9.14",
+    "pino": "^9.2.0",
+    "pino-pretty": "^11.2.1",
+    "pug": "^3.0.3",
+    "redis": "^4.6.15",
+    "slugify": "^1.6.6",
+    "stripe": "^16.5.0",
+    "ts-node-dev": "^2.0.0",
+    "zod": "^3.23.8"
+  }
+}

@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ReviewModel = exports.OrderModel = exports.CategoryModel = exports.GanjaModel = exports.UserModel = void 0;
+const typegoose_1 = require("@typegoose/typegoose");
+const userModel_1 = require("./userModel");
+const ganjaModel_1 = require("./ganjaModel");
+const categoryModel_1 = require("./categoryModel");
+const orderModel_1 = require("./orderModel");
+const reviewModel_1 = require("./reviewModel");
+exports.UserModel = (0, typegoose_1.getModelForClass)(userModel_1.User);
+exports.GanjaModel = (0, typegoose_1.getModelForClass)(ganjaModel_1.Ganja);
+exports.CategoryModel = (0, typegoose_1.getModelForClass)(categoryModel_1.Category);
+exports.OrderModel = (0, typegoose_1.getModelForClass)(orderModel_1.Order);
+exports.ReviewModel = (0, typegoose_1.getModelForClass)(reviewModel_1.Review);

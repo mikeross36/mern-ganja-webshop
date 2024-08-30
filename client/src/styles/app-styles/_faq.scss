@@ -1,0 +1,117 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss";
+
+.faq {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+
+  .nav__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -2rem;
+    padding-bottom: 2rem;
+
+    & p {
+      color: $textColor;
+      letter-spacing: 1px;
+
+      &:hover {
+        text-decoration: underline;
+        color: $mainGreen;
+      }
+
+      @include mixins.breakpoint-up(large) {
+        font-size: $fontSlg;
+      }
+    }
+
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .faq__container {
+    width: 60%;
+    height: auto;
+    background-color: $whiteColor;
+
+    @include mixins.breakpoint-down(medium) {
+      width: 90vw;
+
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.accordion {
+  .question {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+    box-shadow: $boxSh;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        letter-spacing: 0.1rem;
+        margin-left: 1rem;
+      }
+    }
+    .right {
+      .active {
+        transition: all 0.5s ease-in-out;
+        transform: rotate(180deg);
+        fill: $starColor;
+      }
+    }
+  }
+
+  .answer {
+    padding: 0rem;
+    height: 0px;
+    opacity: 0;
+    overflow-y: scroll;
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+      transition: all 0.5s ease-in-out;
+      padding: 0.5rem;
+      height: auto;
+      opacity: 1;
+    }
+
+    p {
+      line-height: 1.4;
+      padding: 0.5rem 1rem;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px 1px $textColorLight;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $textColor;
+    border-radius: 20px;
+  }
+}

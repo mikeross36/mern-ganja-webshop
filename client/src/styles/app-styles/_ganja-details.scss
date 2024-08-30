@@ -1,0 +1,87 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss";
+
+.ganja {
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  color: $textColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // background-color: $whiteColor;
+
+  .ganja__header {
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid $lightColor;
+
+    @include mixins.breakpoint-up(medium) {
+      align-self: center;
+      width: 50%;
+    }
+
+    & a {
+      text-decoration: underline;
+      color: $textColor;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $mainGreen;
+      }
+    }
+  }
+
+  .ganja__image {
+    align-self: self-start;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: transparent;
+    box-shadow: none;
+
+    @include mixins.breakpoint-up(medium) {
+      margin-left: 25%;
+    }
+
+    & img {
+      width: 150px;
+      filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  .ganja__details {
+    padding: 1rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & img {
+      width: 50px;
+    }
+
+    @include mixins.breakpoint-up(medium) {
+      width: 50%;
+    }
+
+    &-btns {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 0.5rem;
+    }
+
+    .ganja__rating {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ganja__summary {
+      padding: 0.5rem 0;
+      line-height: 1.5;
+    }
+  }
+}

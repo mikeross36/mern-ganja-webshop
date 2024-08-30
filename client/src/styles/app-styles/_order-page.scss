@@ -1,0 +1,107 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.order {
+  &__wrapper {
+    width: 25rem;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 1rem;
+
+    // @include mixins.breakpoint-up(medium) {
+    //   grid-template-columns: repeat(2, 1fr);
+    //   column-gap: 2rem;
+    // }
+
+    .shipping__data {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 1rem;
+
+      &-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 5px;
+
+        .card__title {
+          text-transform: capitalize;
+        }
+
+        .card__data {
+          display: flex;
+          flex-direction: column;
+          justify-content: left;
+          gap: 5px;
+        }
+
+        & a {
+          color: lighten($mainGreen, 10%);
+          padding: 5px 0;
+          text-decoration: underline;
+          text-transform: capitalize;
+        }
+
+        .shipping__items {
+          padding: 10px 0;
+
+          .shipping__item {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            gap: 5px;
+            padding: 10px 0px 10px 25px;
+            box-shadow: $boxSh;
+            margin-bottom: $mb-0-5;
+
+            & img {
+              padding: 10px 0;
+              width: 100px;
+              filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.5));
+            }
+          }
+        }
+      }
+    }
+
+    .summary__data {
+      &-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 5px;
+        box-shadow: $boxSh;
+        padding: 10px;
+
+        .card__title {
+          text-transform: capitalize;
+        }
+
+        .summary__items {
+          display: flex;
+          flex-direction: column;
+          justify-content: left;
+          gap: 10px;
+          padding: 1rem;
+
+          .summary__item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 5px 10px 5px 0;
+            border-bottom: 1px solid $lightColor;
+
+            & p {
+              text-transform: capitalize;
+              font-weight: $weightLg;
+            }
+          }
+        }
+      }
+    }
+  }
+}

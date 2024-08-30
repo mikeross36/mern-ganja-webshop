@@ -1,0 +1,49 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss";
+
+.running__text {
+  width: 100%;
+  height: 5rem;
+
+  .marquee {
+    overflow: hidden;
+  }
+
+  .marquee__inner {
+    display: flex;
+  }
+
+  .marquee__line {
+    padding: 0.5rem 1rem;
+    flex-shrink: 0;
+    min-width: 100%;
+    white-space: nowrap;
+    animation-name: marqueeLine;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: 9vh;
+    font-weight: $weightLg;
+    line-height: 6rem;
+    color: #f1ebe5;
+    text-shadow: 0 10px 7px #807767, 0 -2px 3px #d7d7d7;
+    letter-spacing: 1px;
+
+    @include mixins.breakpoint-up(medium) {
+      font-size: 11vh;
+      line-height: 7rem;
+    }
+  }
+
+  @keyframes marqueeLine {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}

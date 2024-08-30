@@ -1,0 +1,35 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.orders {
+  padding: 5rem 1rem;
+  height: 100%;
+
+  &__list {
+    width: 100%;
+    max-width: 64rem;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+    justify-items: center;
+
+    .order__item {
+      width: 18rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: $mb-1;
+      padding: 1rem;
+      box-shadow: $boxSh;
+      font-size: $fontSm;
+      color: $textColor;
+
+      & p {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

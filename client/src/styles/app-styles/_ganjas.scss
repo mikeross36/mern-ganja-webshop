@@ -1,0 +1,203 @@
+@use "../variables" as *;
+@use "../mixins.scss";
+
+.ganjas {
+  padding: 6.5rem 1rem;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    justify-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    @include mixins.breakpoint-up(medium) {
+      padding-top: 2rem;
+    }
+
+    .ganja__card-wrapper {
+      width: 14rem;
+      height: 16rem;
+      color: $textColor;
+      perspective: 800px;
+      position: relative;
+      margin-right: 1rem;
+      padding: 1rem;
+
+      .ganja__card {
+        justify-self: center;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: translateZ(-140px);
+        transition: transform 0.8s;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateZ(-160px) rotateY(-90deg);
+
+          .ganja__card-front {
+            opacity: 0;
+          }
+
+          .ganja__card-right {
+            opacity: 1;
+          }
+        }
+
+        & > div {
+          position: absolute;
+          width: 12rem;
+          height: 14rem;
+          padding: 2rem 1rem;
+          transition: all 350ms cubic-bezier(0.39, 0.575, 0.565, 1);
+          box-shadow: $boxSh2;
+          background: darken($whiteColor, 4%);
+        }
+
+        &-front {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 0.5rem;
+          border-radius: $radius;
+          transform: rotateY(0deg) translateZ(160px);
+
+          & h4 {
+            letter-spacing: -0.25px;
+            font-weight: 700;
+            padding-bottom: 5px;
+          }
+
+          & {
+            font-weight: 300;
+          }
+
+          & p {
+            font-size: $fontSm;
+            font-weight: $weightLg;
+          }
+
+          .in-cart {
+            display: inline-block;
+            color: $mainGreen;
+            font-weight: $weightLg;
+          }
+        }
+
+        &-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          gap: 0.5rem;
+          color: $textColor;
+          border-radius: $radius;
+          opacity: 0.2;
+          transform: rotateY(90deg) translateZ(160px);
+          padding: 1rem;
+
+          & h4 {
+            padding-bottom: 5px;
+          }
+        }
+      }
+
+      & p {
+        font-size: $fontSm;
+        font-weight: $weightLg;
+      }
+
+      .ganja__card-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .ganja__card-image {
+        animation: float 3s cubic-bezier(0.39, 0.575, 0.565, 1) infinite
+          alternate;
+        position: absolute;
+        top: 15%;
+        right: 35%;
+        pointer-events: none;
+        backface-visibility: hidden;
+        margin-top: auto;
+        height: 100%;
+      }
+
+      .ganja__img {
+        transform-origin: top right;
+        transition: transform 500ms cubic-bezier(0.39, 0.575, 0.565, 1);
+        transition-delay: 100ms;
+        transform: translateX(21%) rotateZ(13deg) skewX(3deg);
+        pointer-events: none;
+        display: block;
+        width: 100px;
+        filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.5));
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateZ(20px);
+        }
+        100% {
+          transform: translateY(-1px) translateX(-13px) translateZ(30px);
+        }
+      }
+    }
+  }
+
+  .ganjas__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: all 1s ease;
+    height: 10rem;
+    padding: 2rem 0;
+
+    @include mixins.breakpoint-up(medium) {
+      height: 15rem;
+      gap: 2.5rem;
+    }
+
+    .page__nav-btn {
+      padding: 0.5rem 1rem;
+      background-color: darken($whiteColor, 4%);
+      color: darken($mainGreen, 10%);
+      text-shadow: none;
+      box-shadow: $boxSh;
+      border: none;
+      font-weight: $weightXlg;
+      border-radius: $radius;
+      cursor: pointer;
+
+      &.disabled {
+        color: $lightColor;
+      }
+    }
+
+    .page__num-btn {
+      padding: 0.5rem;
+      border-radius: 5px;
+      background-color: darken($whiteColor, 4%);
+      color: $textColorLight;
+      text-shadow: none;
+      box-shadow: $boxSh;
+      border: none;
+      font-weight: $weightXlg;
+      cursor: pointer;
+
+      &.page__num-active {
+        background-color: $mainGreen !important;
+        color: $whiteColor !important;
+      }
+
+      &.page__num-disabled {
+        display: none !important;
+      }
+    }
+  }
+}

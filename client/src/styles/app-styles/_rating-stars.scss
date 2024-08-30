@@ -1,0 +1,16 @@
+.rating-stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 0;
+
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .star {
+    display: block;
+    cursor: pointer;
+  }
+}

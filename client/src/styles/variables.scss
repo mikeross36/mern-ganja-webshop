@@ -1,0 +1,57 @@
+// FONTS
+$fontXlg: 4rem;
+$fontLg: 3rem;
+$fontSlg: 1.5rem;
+$fontMd: 1rem; //normal-font-size: 1rem;
+$fontSm: 0.875rem; //small-font-size
+$fontXsm: 0.75rem; //xsmall-font-size
+
+// FONT WEIGHTS
+$weightMd: 500;
+$weightLg: 700;
+$weightXlg: 900;
+
+// MARGIN BOTTOM
+$mb-0-5: 0.5rem;
+$mb-0-75: 0.75rem;
+$mb-1: 1rem;
+$mb-1-5: 1.5rem;
+$mb-2: 2rem;
+$mb-2-5: 2.5rem;
+$mb-3: 3rem;
+
+// COLORS
+$whiteColor: #ffffff;
+$lightColor: #afafaf;
+$mainGreen: #1d976c;
+$mainDark: #333333;
+$textColor: #525151;
+$textColorLight: #7d7d7d;
+$starColor: #fc9403;
+$mainRed: #c43030;
+$orangeRed: #ff4500;
+$cardColor: #e8ffe8;
+$paypalColor: #5879af;
+
+// SHADOWS
+$textSh: 1px 1px 1px $mainDark;
+$textSh2: 1px 1px 3px #000000;
+$boxSh: #32325d40 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$boxSh2: rgba(0, 0, 0, 0.45) 0px 25px 10px -20px;
+$boxSh3: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+  rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+$boxSh4: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+$boxSh5: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+  rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+  rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+  rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+  rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+// BORDER RADIUS
+$radius: 10px;
+//TRANSITION
+$transition-time: 2.3s;
+
+$indent: clamp(1.5rem, 4vw, 2.5rem);

@@ -1,0 +1,148 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.auth__page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .nav__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -2rem;
+    padding-bottom: 2rem;
+
+    & p {
+      color: $textColor;
+      letter-spacing: 1px;
+
+      &:hover {
+        text-decoration: underline;
+        color: $mainGreen;
+      }
+
+      @include mixins.breakpoint-up(large) {
+        font-size: $fontSlg;
+      }
+    }
+
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &-container {
+    & .auth__page-content {
+      width: 18rem;
+      overflow: hidden;
+      z-index: 10;
+      padding: 2rem 1.5rem;
+
+      @include mixins.breakpoint-up(medium) {
+        max-width: 20rem;
+        margin-right: 0;
+      }
+
+      .auth__form {
+        margin: 0 auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+
+        .form__field {
+          position: relative;
+          margin: 0 auto;
+          height: 80px;
+          width: 100%;
+
+          .form__input {
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+            height: 3rem;
+            padding: 0 0.6rem;
+            outline: none;
+            border: 1px solid $lightColor;
+            font-size: $fontSm;
+            font-weight: $weightLg;
+            color: $textColor;
+            border-radius: $radius;
+          }
+
+          & input:focus {
+            box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #ffffff73;
+          }
+
+          & input::placeholder {
+            color: $lightColor;
+            font-weight: normal;
+          }
+
+          .eye {
+            position: absolute;
+            right: 1rem;
+            transform: translateY(-2rem);
+            cursor: pointer;
+          }
+
+          .form__field-error {
+            display: block;
+            color: $mainRed;
+            font-size: $fontSm;
+            padding-top: 2px;
+          }
+        }
+
+        .auth__button {
+          text-shadow: $textSh;
+          width: 90%;
+          font-size: $fontMd;
+          margin-bottom: 1rem;
+        }
+
+        .login,
+        .sign__up {
+          margin: 1rem 0;
+          font-size: $fontMd;
+
+          & a {
+            color: $textColorLight;
+            text-decoration: none;
+            margin-left: 0.5rem;
+            text-transform: capitalize;
+
+            &:hover {
+              text-decoration: underline;
+              color: $mainGreen;
+            }
+          }
+        }
+
+        .forgot__pass {
+          margin-top: 1rem;
+          & a {
+            font-size: $fontMd;
+            color: $textColorLight;
+            text-decoration: none;
+            text-transform: capitalize;
+
+            &:hover {
+              text-decoration: underline;
+              color: $mainGreen;
+            }
+          }
+        }
+      }
+    }
+  }
+}

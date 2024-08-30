@@ -1,0 +1,139 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss";
+
+.dropdown__menu {
+  width: 10rem;
+  display: grid;
+  place-items: left;
+
+  &-content {
+    position: relative;
+    width: auto;
+    transform: translateY(0);
+
+    .dropdown__menu-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      .dropdown__user-img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        color: $textColor;
+        font-weight: normal;
+        border-radius: 50%;
+
+        @include mixins.breakpoint-up(medium) {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+
+      .dropdown__menu-user {
+        & p {
+          background: $whiteColor;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: t$whiteColor;
+          background-clip: text;
+          font-size: $fontSm;
+          color: $whiteColor !important;
+          font-weight: 500;
+          margin-top: 5px;
+        }
+      }
+
+      .dropdown__menu-icons {
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+      }
+
+      .dropdown__arrow {
+        position: absolute;
+        transition: opacity 0.1s, transform 0.4s;
+        fill: $whiteColor;
+        font-size: $fontSlg;
+      }
+    }
+
+    .dropdown__list {
+      position: absolute;
+      background: $whiteColor;
+      padding: 1rem;
+      box-shadow: $boxSh;
+      border-radius: $radius;
+      display: grid;
+      row-gap: 1.5rem;
+      width: 100%;
+      right: -15%;
+      top: 4rem;
+      transform: scale(0.1);
+      transform-origin: 10rem -2rem;
+      pointer-events: none;
+      transition: opacity 0.4s, transform 0.4s;
+      opacity: 0;
+
+      @include mixins.breakpoint-up(medium) {
+        right: 20%;
+      }
+
+      .dropdown__item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding-left: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: $mainGreen;
+          .dropdown__title {
+            color: $whiteColor;
+          }
+          .dropdown__icon {
+            fill: $whiteColor;
+          }
+        }
+      }
+
+      .dropdown__icon {
+        fill: $mainGreen;
+        font-size: $fontMd;
+        width: 18px;
+        height: 18px;
+      }
+
+      .dropdown__title {
+        font-weight: 500;
+        color: $mainDark;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+/* Rotate & hide icon */
+.show-dropdown .dropdown__close {
+  opacity: 1;
+  transform: rotate(-180deg);
+}
+
+.show-dropdown .dropdown__arrow {
+  // opacity: 0;
+  transform: rotate(180deg);
+}
+
+/* Show dropdown menu */
+.show-dropdown .dropdown__list {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: initial;
+}
