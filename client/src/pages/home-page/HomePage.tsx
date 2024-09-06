@@ -4,6 +4,8 @@ import { ERoutes, ESelectedPage, HomeCardType } from "../../types";
 import { Link } from "react-router-dom";
 import { homeCards } from "./data";
 import Button from "../../components/Button";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const contentVariants = {
   hidden: { x: "-100vw" },
@@ -71,7 +73,10 @@ export default function HomePage() {
                 initial="hidden"
                 animate="visible"
               >
-                <img
+                <LazyLoadImage
+                  width={"100%"}
+                  height={"100%"}
+                  effect="blur"
                   src={card.image}
                   alt="home card photo"
                   className="home__card-img"

@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/react-lazy-load-image-component": "^1.6.4",
     "concurrently": "^8.2.2"
   }
 }

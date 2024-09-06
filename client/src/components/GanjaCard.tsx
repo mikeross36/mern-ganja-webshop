@@ -15,6 +15,8 @@ import { addItemToCartAction } from "../shopping-cart-state/actions";
 import { ShoppingCartActionType } from "../shopping-cart-state/action-types";
 import { ERoutes } from "../types";
 import { ShoppingCartStateType } from "../shopping-cart-state/reducers";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function GanjaCard({ ganja }: { ganja: GanjaType }) {
   const [ganjaRating, setGanjaRating] = useState(ganja.rating);
@@ -103,7 +105,13 @@ export default function GanjaCard({ ganja }: { ganja: GanjaType }) {
           </div>
         </article>
         <div className="ganja__card-image">
-          <img src={ganjaImg} alt="ganja cover imnage" className="ganja__img" />
+          <LazyLoadImage
+            width={"100%"}
+            height={"100%"}
+            src={ganjaImg}
+            alt="ganja cover imnage"
+            className="ganja__img"
+          />
         </div>
       </div>
     </li>
