@@ -1,6 +1,6 @@
-import { createContext, useCallback, useMemo, useReducer } from "react";
+import { createContext, useMemo, useReducer } from "react";
 import { IUser } from "../types";
-import { useLocalStorage } from "../hooks";
+// import { useLocalStorage } from "../hooks";
 
 type StateType = {
   authUser: IUser | null;
@@ -37,26 +37,26 @@ const authReducer = (state: StateType, action: ActionType): StateType => {
   }
 };
 
-const usePersistedReducer = () => {
-  const [savedState, setSavedState] = useLocalStorage<StateType>(
-    "authUser",
-    initialState
-  );
-  const reducerLocalStorage = useCallback(
-    (state: StateType, action: ActionType): StateType => {
-      const newState = authReducer(state, action);
-      setSavedState(newState);
-      return newState;
-    },
-    [setSavedState]
-  );
-  return useReducer(reducerLocalStorage, savedState);
-};
+// const usePersistedReducer = () => {
+//   const [savedState, setSavedState] = useLocalStorage<StateType>(
+//     "authUser",
+//     initialState
+//   );
+//   const reducerLocalStorage = useCallback(
+//     (state: StateType, action: ActionType): StateType => {
+//       const newState = authReducer(state, action);
+//       setSavedState(newState);
+//       return newState;
+//     },
+//     [setSavedState]
+//   );
+//   return useReducer(reducerLocalStorage, savedState);
+// };
 
 type AuthContextProviderProps = { children: React.ReactNode };
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
-  const [state, dispatch] = usePersistedReducer();
+  const [state, dispatch] = useReducer(authReducer, initialState);
   // console.log(state);
   const value = useMemo(() => {
     return {
@@ -66,15 +66,3 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   }, [state, dispatch]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-
-// const useAuthContext = () => {
-//   const context = useContext(AuthContext);
-
-//   if (context) {
-//     return context;
-//   }
-
-//   throw new Error(`useStateContext must be used within a AuthContextProvider`);
-// };
-
-// export { AuthContextProvider, useAuthContext };

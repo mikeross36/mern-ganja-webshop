@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./styles/main.scss";
@@ -28,7 +28,7 @@ import ResetPassword from "./components/ResetPassword";
 import UserAccount from "./pages/user-account/UserAccount";
 import UpdateAccount from "./pages/user-account/UpdateAccount";
 import UpdatePassword from "./pages/user-account/UpdatePassword";
-const Category = lazy(() => import("./pages/Category"));
+import Category from "./pages/Category.tsx";
 
 const clientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
 const initialOptions = {

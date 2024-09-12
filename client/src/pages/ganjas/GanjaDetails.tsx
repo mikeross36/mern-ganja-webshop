@@ -27,8 +27,9 @@ export default function GanjaDetails() {
   const [quantity] = useState<number>(1);
 
   const authContext = useAuthContext();
-  const { setIsCartOpen } = useAppContext();
   const loggedInUser = authContext?.state.authUser;
+    const { setIsCartOpen } = useAppContext();
+  
   const coverImage = ganja?.coverImage
     ? new URL(`../../assets/ganjas/${ganja.coverImage}`, import.meta.url).href
     : "";

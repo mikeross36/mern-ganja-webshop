@@ -79,12 +79,11 @@ export default function MakeOrder() {
             </div>
 
             <div className="shipping__data-card">
-              <h4 className="card__title">
-                <article className="card__data">
-                  <p>payment method: {paymentMethod}</p>
-                  <Link to={ERoutes.payment}>edit</Link>
-                </article>
-              </h4>
+              <h4 className="card__title">payment</h4>
+              <article className="card__data">
+                <p>payment method: {paymentMethod}</p>
+                <Link to={ERoutes.payment}>edit</Link>
+              </article>
             </div>
 
             <div className="shipping__data-card">
