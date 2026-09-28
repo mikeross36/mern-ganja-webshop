@@ -50,7 +50,7 @@ app.use("/api/v1/orders", orderRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/keys", keyRouter);
 
-app.listen(port, () => {
-  logger.info(`App is runnig on port http://localhost:${port}`);
-  connectDb();
-});
+// app.listen(port, () => {
+//   logger.info(`App is runnig on port http://localhost:${port}`);
+//   connectDb();
+// });
